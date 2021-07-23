@@ -27,7 +27,7 @@ jwtCtrl.isAuth = (req, res, next) => {
       process.env.JWT_SECRET || 'somethingsecret',
       (err, decode) => {
         if (err) {
-          res.status(401).send({ message: 'Invalid Token' });
+          res.status(401).send({ message: 'Token de seguridad Invalido por favor salga y vuelva a ingresar' });
         } else {
           req.user = decode;
           next();
@@ -43,7 +43,7 @@ jwtCtrl.isAdmin = (req, res, next) => {
   if (req.user && req.user.isAdmin) {
     next();
   } else {
-    res.status(401).send({ message: 'Invalido el Token de Administrador' });
+    res.status(401).send({ message: 'Token de seguridad Invalido por favor salga y vuelva a ingresar' });
   }
 };
 
@@ -51,7 +51,7 @@ jwtCtrl.isSeller = (req, res, next) => {
   if (req.user && req.user.isSeller) {
     next();
   } else {
-    res.status(401).send({ message: 'Invalido el Token de Vendedor' });
+    res.status(401).send({ message: 'Token de seguridad Invalido por favor salga y vuelva a ingresar' });
   }
 };
 
@@ -59,7 +59,7 @@ jwtCtrl.isSellerOrAdmin = (req, res, next) => {
   if (req.user && (req.user.isSeller || req.user.isAdmin)) {
     next();
   } else {
-    res.status(401).send({ message: 'Invalido el Token de Vendedor/Administrador' });
+    res.status(401).send({ message: 'Token de seguridad Invalido por favor salga y vuelva a ingresar' });
   }
 };
 
