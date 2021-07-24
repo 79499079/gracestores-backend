@@ -190,4 +190,16 @@ router.post(
   })
 );
 
+router.get(
+  "/listaProductos",
+  expressAsyncHandler(async (req, res) => {
+    const product = await Product.find()
+    if (product) {
+      res.send(product);
+    } else {
+      res.status(404).send({ message: "Producto No Existe" });
+    }
+  })
+);
+
 module.exports = router;
