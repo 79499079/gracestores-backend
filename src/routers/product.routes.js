@@ -135,9 +135,9 @@ router.put(
       product.image = req.body.image;
       product.nuevo = req.body.nuevo;     
       const updatedProduct = await product.save();
-      res.send({ message: 'Película Modificado', product: updatedProduct });
+      res.send({ message: 'Producto Modificado', product: updatedProduct });
     } else {
-      res.status(404).send({ message: 'Película no existe' });
+      res.status(404).send({ message: 'Producto no existe' });
     }
   })
 );
