@@ -24,6 +24,7 @@ app.use((req, res, next) => {
 
 //Routes
 app.use(require('./routers/user.routes') )
+app.use(require('./routers/categorias.routes') )
 app.use(require('./routers/product.routes') )
 app.use(require('./routers/order.routes') )
 app.use(require('./routers/upload.routes') )
